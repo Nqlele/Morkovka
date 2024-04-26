@@ -16,3 +16,23 @@ footer {
     font-family: Arial;
     margin: 2px;
 }
+a {
+    color:rgb(27, 43, 27);
+    text-decoration: none;
+    transition: 0.5s;
+}
+a:hover {
+    color:rgb(33, 111, 134);
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+a:active {
+    color:rgb(0, 0, 0);
+    opacity: 0.3;
+}
+
+a:link {
+    color:rgb(14, 121, 76);
+    opacity: 0.3;
+}
