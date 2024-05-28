@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еремин Захар Дмитриевич. Корзина товаров</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showAllMoney() {
+            let mango = document.getElementById('mango');
+            let banan = document.getElementById('banan');
+            let apelsin4ik = document.getElementById('apelsinik');
+            let curd = document.getElementById('curd');
+
+            let a = parseInt(mango.value);
+            let b = parseInt(banan.value);
+            let c = parseInt(apelsinik.value);
+            let d = parseInt(curd.value);
+
+            let AllMoney = document.getElementById('AllMoney');
+
+            let result = (a * 149) + (b * 99) + (c * 219) + (d * 179);
+
+            if (isNaN(result)) {
+                    AllMoney.innerHTML ='Ошибка! Дайте нам числа';
+                } else {
+                        AllMoney.innerHTML ='Общая цена: ' + result + ' рублей';
+                    }
+            }
+        function showClean() {
+            AllMoney.innerHTML ='';
+            lays.value = "";
+            nachos.value = "";
+            cheese.value = "";
+            curd.value = "";
+        }
+    </script>
+    <style>
+        .cont {
+            width: 350px;
+            border: 4px rgb(250, 122, 122) solid;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0 auto;
+            box-shadow: 8px 5px 5px rgb(234, 170, 170);
+            background: linear-gradient(to left top, rgb(67, 196, 106), rgb(81, 60, 175));
+            color: white;
+        }
+        input, button {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    
+    <main>
+        <div class="cont">
+            <h1 style="font-size: 30px;">Корзина товаров</h1>
+            <label>Манго (77 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="Сколько штук?" id="mango"></label><br>
+            <label>Банан  (66 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="кол-во связок" id="banan"></label><br>
+            <label>Апельсин (333 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="цитрусик?" id="apelsinik"></label><br>
+            <label>Творог  (55 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="В одной штуке 500гр" id="curd"></label><br>
+            <button onclick="showAllMoney()">Рассчитать</button>
+            <button onclick="showClean()">Очистить</button>
+            <div id="AllMoney"></div>
+        </div>
+
+    <footer>
+        &copy; Еремин Захар Дмитриевич, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
