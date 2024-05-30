@@ -13,9 +13,25 @@
             width: 500px;
             text-align: center;
             margin: 20px auto;
-            border: 5px rgb(20, 0,100) solid;
+            border: 5px rgb(20, 0, 10) solid;
             padding: 10px;
             border-radius: 30px;
+        }
+        div.game div {
+            margin: 10px;
+        }
+        div.forpad input, button, div {
+            margin: 10px;
+        }
+        .rules {
+            width: 600px;
+            margin: 10px auto;
+            background-color: rgb(230, 221, 255);
+            color: black;
+            border-radius: 20px;
+        }
+        li {
+            font-size: 15px;
         }
     </style>
     <script>
@@ -33,17 +49,17 @@
             let userNumber = parseInt(input.value);
             let message = document.getElementById('result');
             if (input.value == null || input.value == "") {
-                message.innerHTML = 'неправильно братик';
+                message.innerHTML = 'Некорректный ввод';
                 count--
             }
             else if (userNumber < 1 || userNumber > 100) {
-                message.innerHTML = 'введи от 1 до 100!';
+                message.innerHTML = 'Введите число в диапазоне от 1 до 100!';
             }
             else if (userNumber > number) {
-                message.innerHTML = 'много даешь';
+                message.innerHTML = 'Вы ввели слишком большое число';
             }
             else if (userNumber < number) {
-                message.innerHTML = 'мало даешь';
+                message.innerHTML = 'Вы ввели слишком маленькое число';
             }
             else {
                 let screens = document.getElementsByClassName('game');
@@ -61,13 +77,22 @@
             document.getElementById('user-number').value = null;
             count = 0;
         }
+        let buttons = document.getElementsByClassName('butforrule');
+        function showRules() {
+            buttons[0].style.display = 'none';
+            buttons[1].style.display = 'block';
+        }
+        function hiddenRules() {
+            buttons[1].style.display = 'none';
+            buttons[0].style.display = 'block';
+        }
     </script>
 </head>
 <body>
     <header>
         НГТУ, ФБ, Лабораторная работа 6
     </header>
-
+    
     <main>
         <div class="game">
             <button onclick="startGame()">
@@ -86,7 +111,7 @@
         </div>
 
         <div class="game" style="display: none;">
-            <h1>Поздравляю,<br> ты выйграл!</h1>
+            <h1>Поздравляем,<br>ты выйграл!</h1>
             <div>
                 Задуманное число: <span id="number"></span>
             </div>
@@ -95,6 +120,23 @@
             </div>
             <div>
                 <button onclick="again(startGame())">рискни еще разок</button>
+            </div>
+        </div>
+        <div class="rules">
+            <div class="butforrule">
+                <button onclick="showRules()">Показать правила игры</button>
+            </div>
+            <div class="butforrule" style="display: none; padding-bottom: 15px;">
+                <button onclick="hiddenRules()">Скрыть правила игры</button>
+                <ol type="A">
+                    <li>жмешь на кнопку играть"</li>
+                    <li>вводишь число от 1 до 100</li>
+                    <li>жмякаешь на  "Угадать"</li>
+                    <li>вводи только числа , не буквы</li>
+                    <li>если число не в диапазоне <br>выводится соответствующее сообщение</li>
+                    <li>ну если ты угадал то тебе это напишут</li>
+                    <li>ну если хочешь можешь сыграть еще</li>
+                </ol>
             </div>
         </div>
     </main>
