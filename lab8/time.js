@@ -7,4 +7,8 @@ function showTime() {
     document.getElementById('seconds').innerHTML =
         currentSecond < 10 ? '0' + currentSecond : currentSecond;
 }
+let sec = 180+(currentSecond* 6);
+    let arrow = document.getElementById('arrow');
+    arrow.style.transform = `rotate(${sec}deg) translate(0, 50px)`;
+    arrow.style.transition = 'transform 1s';
 setInterval(showTime, 1000);
